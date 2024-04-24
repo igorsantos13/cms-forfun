@@ -11,19 +11,19 @@ export interface HomeProps {
         title: string;
         url: string;
       };
-    };
-    about: {
-      description: string;
-      banner: {
-        url: string;
+      about: {
+        description: string;
+        banner: {
+          url: string;
+        };
       };
-    };
-    services: ServiceProps[];
-    contact: {
-      email: string;
-      phone: string;
-      address: string;
-      time: string;
+      services: ServiceProps[];
+      contact: {
+        email: string;
+        phone: string;
+        address: string;
+        time: string;
+      };
     };
   };
 }
