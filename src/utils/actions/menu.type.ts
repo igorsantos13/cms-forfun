@@ -1,5 +1,5 @@
 export interface MenuProps {
-  object: ItemMenuProps[];
+  objects: ItemMenuProps[];
 }
 
 interface ItemMenuProps {

@@ -13,9 +13,10 @@ import { MenuProps } from "@/utils/actions/menu.type";
 export default async function Home() {
   const { object }: HomeProps = await getDataHome();
   const menu: MenuProps = await getSubMenu();
+
   return (
     <main>
-      {menu.object.length > 0 && <Submenu menu={menu} />}
+      {menu.objects.length > 0 && <Submenu menu={menu} />}
       <Hero
         heading={object.metadata.heading}
         buttonTitle={object.metadata.cta_button.title}

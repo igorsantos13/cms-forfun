@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export async function getDataHome() {
   try {
     const response = await fetch(
@@ -34,6 +36,7 @@ export async function getSubMenu() {
 export async function getItemBySlug(itemSlug: string) {
   const baseUrl = `${process.env.NEXT_PUBLIC_API_URL}/objects`;
 
+  // Definindo o objeto de consulta pelo slug
   const queryParams = new URLSearchParams({
     query: JSON.stringify({
       slug: itemSlug,
@@ -45,14 +48,14 @@ export async function getItemBySlug(itemSlug: string) {
   const url = `${baseUrl}?${queryParams.toString()}`;
 
   try {
-    const response = await fetch(url, { next: { revalidate: 120 } });
+    const res = await fetch(url, { next: { revalidate: 120 } });
 
-    if (!response.ok) {
+    if (!res.ok) {
       throw new Error("Failed get item by slug");
     }
 
-    return response.json();
+    return res.json();
   } catch (err) {
-    throw new Error("Failed get item by slug");
+    redirect("/");
   }
 }
